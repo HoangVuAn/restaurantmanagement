@@ -2,15 +2,18 @@ package com.doan1.restaurantmanagement.converter;
 
 import com.doan1.restaurantmanagement.dto.DishDTO;
 import com.doan1.restaurantmanagement.entity.DishEntity;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class DishConverter {
+
     public DishEntity toEntity(DishDTO dto) {
         DishEntity entity = new DishEntity();
         entity.setName(dto.getName());
         entity.setShortDescription(dto.getShortDescription());
         entity.setPrice(dto.getPrice());
+        entity.setImage(dto.getImage());
         return entity;
     }
 
@@ -22,12 +25,15 @@ public class DishConverter {
         dto.setName(entity.getName());
         dto.setShortDescription(entity.getShortDescription());
         dto.setPrice(entity.getPrice());
+        dto.setImage(entity.getImage());
+        dto.setCategoryName(entity.getName());
         return dto;
     }
     public DishEntity toEntity(DishDTO dto, DishEntity entity) {
         entity.setName(dto.getName());
         entity.setShortDescription(dto.getShortDescription());
         entity.setPrice(dto.getPrice());
+        entity.setImage(dto.getImage());
         return entity;
     }
 }

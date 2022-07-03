@@ -2,7 +2,9 @@ package com.doan1.restaurantmanagement.service.impl;
 
 import com.doan1.restaurantmanagement.converter.DishConverter;
 import com.doan1.restaurantmanagement.dto.DishDTO;
+import com.doan1.restaurantmanagement.entity.CategoryEntity;
 import com.doan1.restaurantmanagement.entity.DishEntity;
+import com.doan1.restaurantmanagement.repository.CategoryRepository;
 import com.doan1.restaurantmanagement.repository.DishRepository;
 import com.doan1.restaurantmanagement.service.IDishService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,9 @@ public class DishService implements IDishService {
     private DishRepository dishRepository;
 
     @Autowired
+    private CategoryRepository categoryRepository;
+
+    @Autowired
     private DishConverter dishConverter;
 
     @Override
@@ -30,6 +35,8 @@ public class DishService implements IDishService {
         } else {
             dishEntity = dishConverter.toEntity(dishDTO);
         }
+        CategoryEntity categoryEntity = categoryRepository.findOneByName(dishDTO.getCategoryName());
+        dishEntity.setCategory(categoryEntity);
         dishEntity = dishRepository.save(dishEntity);
         return dishConverter.toDTO(dishEntity);
     }

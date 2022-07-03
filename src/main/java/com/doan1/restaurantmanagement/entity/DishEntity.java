@@ -16,6 +16,17 @@ public class DishEntity extends BaseEntity{
     @Column(name = "Price")
     private Long price;
 
+//    @Column(name = "Image")
+//    private String image;
+
+
+    @Lob
+    private byte[] image;
+
+    @ManyToOne
+    @JoinColumn(name = "CategoryId")
+    private CategoryEntity category;
+
     @OneToMany(mappedBy = "dish")
     private List<ReviewEntity> reviews = new ArrayList<>();
 
@@ -71,5 +82,29 @@ public class DishEntity extends BaseEntity{
 
     public void setBills(List<BillEntity> bills) {
         this.bills = bills;
+    }
+
+//    public String getImage() {
+//        return image;
+//    }
+//
+//    public void setImage(String image) {
+//        this.image = image;
+//    }
+
+    public CategoryEntity getCategory() {
+        return category;
+    }
+
+    public void setCategory(CategoryEntity category) {
+        this.category = category;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
     }
 }
