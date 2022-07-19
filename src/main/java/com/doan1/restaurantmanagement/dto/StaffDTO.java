@@ -1,38 +1,15 @@
-package com.doan1.restaurantmanagement.entity;
+package com.doan1.restaurantmanagement.dto;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import java.util.ArrayList;
-import java.util.List;
 
-@Entity
-@Table(name = "staff")
-public class StaffEntity extends BaseEntity{
-    @Column(name = "Account")
+public class StaffDTO extends AbstractDTO{
     private String account;
-
-    @Column(name = "Password")
     private String password;
-
-    @Column(name = "Name")
     private String name;
-
-    @Column(name = "PhoneNumber")
     private Long phoneNumber;
-
-    @Column(name = "DateOfBirth")
     private String dateOfBirth;
-
-    @Column(name = "Address")
     private String address;
-
-    @Column(name = "Sex")
     private String sex;
-
-    @OneToMany(mappedBy = "staff")
-    private List<BillEntity> bills = new ArrayList<>();
 
     public String getAccount() {
         return account;
@@ -88,13 +65,5 @@ public class StaffEntity extends BaseEntity{
 
     public void setSex(String sex) {
         this.sex = sex;
-    }
-
-    public List<BillEntity> getBills() {
-        return bills;
-    }
-
-    public void setBills(List<BillEntity> bills) {
-        this.bills = bills;
     }
 }
