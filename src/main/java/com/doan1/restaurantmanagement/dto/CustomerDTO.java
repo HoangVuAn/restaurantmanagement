@@ -1,49 +1,17 @@
-package com.doan1.restaurantmanagement.entity;
+package com.doan1.restaurantmanagement.dto;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
-@Entity
-@Table(name = "customer")
-public class CustomerEntity extends BaseEntity {
-    @Column(name = "Account")
+public class CustomerDTO extends AbstractDTO{
     private String account;
-
-    @Column(name = "Password")
     private String password;
-
-    @Column(name = "Name")
     private String name;
-
-    @Column(name = "PhoneNumber")
     private Long phoneNumber;
-
-    @Column(name = "DateOfBirth")
     private String dateOfBirth;
-
-    @Column(name = "Address")
     private String address;
-
-    @Column(name = "Sex")
     private String sex;
-
-    @Column(name = "Email")
     private String email;
-
-    @OneToMany(mappedBy = "customer")
-    private List<TableEntity> tables = new ArrayList<>();
-
-    @OneToMany(mappedBy = "customer")
-    private List<ReviewEntity> reviews = new ArrayList<>();
-
-    @OneToMany(mappedBy = "customer")
-    private List<BillEntity> bills = new ArrayList<>();
 
     public String getAccount() {
         return account;
@@ -107,29 +75,5 @@ public class CustomerEntity extends BaseEntity {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public List<TableEntity> getTables() {
-        return tables;
-    }
-
-    public void setTables(List<TableEntity> tables) {
-        this.tables = tables;
-    }
-
-    public List<ReviewEntity> getReviews() {
-        return reviews;
-    }
-
-    public void setReviews(List<ReviewEntity> reviews) {
-        this.reviews = reviews;
-    }
-
-    public List<BillEntity> getBills() {
-        return bills;
-    }
-
-    public void setBills(List<BillEntity> bills) {
-        this.bills = bills;
     }
 }
