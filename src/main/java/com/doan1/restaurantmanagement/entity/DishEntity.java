@@ -16,10 +16,6 @@ public class DishEntity extends BaseEntity{
     @Column(name = "Price")
     private Long price;
 
-//    @Column(name = "Image")
-//    private String image;
-
-
     @Lob
     private byte[] image;
 
@@ -84,13 +80,6 @@ public class DishEntity extends BaseEntity{
         this.bills = bills;
     }
 
-//    public String getImage() {
-//        return image;
-//    }
-//
-//    public void setImage(String image) {
-//        this.image = image;
-//    }
 
     public CategoryEntity getCategory() {
         return category;

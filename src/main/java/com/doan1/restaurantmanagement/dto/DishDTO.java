@@ -1,14 +1,11 @@
 package com.doan1.restaurantmanagement.dto;
 
-import javax.persistence.Lob;
 
 public class DishDTO extends AbstractDTO<DishDTO>{
     private String name;
     private String shortDescription;
     private Long price;
-
     private byte[] image;
-
     private String categoryName;
 
     public String getName() {

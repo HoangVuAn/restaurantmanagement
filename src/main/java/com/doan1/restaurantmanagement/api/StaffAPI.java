@@ -1,8 +1,6 @@
 package com.doan1.restaurantmanagement.api;
 
-import com.doan1.restaurantmanagement.dto.CustomerDTO;
 import com.doan1.restaurantmanagement.dto.StaffDTO;
-import com.doan1.restaurantmanagement.service.ICustomerService;
 import com.doan1.restaurantmanagement.service.IStaffService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
