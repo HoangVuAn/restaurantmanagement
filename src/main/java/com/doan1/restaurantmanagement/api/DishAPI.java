@@ -32,9 +32,17 @@ public class DishAPI {
 //        } catch (IOException e) {
 //            e.printStackTrace();
 //        }
-        String fileName = multipart.getOriginalFilename();
+
+//        String fileName = multipart.getOriginalFilename();
+//        try {
+//            S3Util.uploadFile(fileName,multipart.getInputStream());
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+
         try {
-            S3Util.uploadFile(fileName,multipart.getInputStream());
+            byte[] imageData = multipart.getBytes();
+            model.setImage(imageData);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -42,8 +50,14 @@ public class DishAPI {
     }
 
     @PutMapping(value = "/dish/{id}")
-    public DishDTO updateDish(@RequestBody DishDTO model,@PathVariable("id") long id){
+    public DishDTO updateDish(DishDTO model,@RequestParam("file") MultipartFile multipart,@PathVariable("id") long id){
         model.setId(id);
+        try {
+            byte[] imageData = multipart.getBytes();
+            model.setImage(imageData);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return dishService.save(model);
     }
 
