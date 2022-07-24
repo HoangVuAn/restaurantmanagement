@@ -12,28 +12,28 @@ import java.util.List;
 @Entity
 @Table(name = "customer")
 public class CustomerEntity extends BaseEntity {
-    @Column(name = "Account")
+    @Column(name = "Account",nullable = false)
     private String account;
 
-    @Column(name = "Password")
+    @Column(name = "Password",nullable = false)
     private String password;
 
-    @Column(name = "Name")
+    @Column(name = "Name",nullable = false)
     private String name;
 
-    @Column(name = "PhoneNumber")
+    @Column(name = "PhoneNumber",nullable = false)
     private Long phoneNumber;
 
-    @Column(name = "DateOfBirth")
+    @Column(name = "DateOfBirth",nullable = false)
     private String dateOfBirth;
 
-    @Column(name = "Address")
+    @Column(name = "Address",nullable = false)
     private String address;
 
-    @Column(name = "Sex")
+    @Column(name = "Sex",nullable = false)
     private String sex;
 
-    @Column(name = "Email")
+    @Column(name = "Email",nullable = false)
     private String email;
 
     @OneToMany(mappedBy = "customer")

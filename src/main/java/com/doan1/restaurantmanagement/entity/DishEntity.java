@@ -7,20 +7,20 @@ import java.util.List;
 @Entity
 @Table(name = "dish")
 public class DishEntity extends BaseEntity{
-    @Column(name = "Name")
+    @Column(name = "Name",nullable = false)
     private String name;
 
-    @Column(name = "ShortDescription")
+    @Column(name = "ShortDescription",nullable = false)
     private String shortDescription;
 
-    @Column(name = "Price")
+    @Column(name = "Price",nullable = false)
     private Long price;
 
     @Lob
     private byte[] image;
 
     @ManyToOne
-    @JoinColumn(name = "CategoryId")
+    @JoinColumn(name = "CategoryId",nullable = false)
     private CategoryEntity category;
 
     @OneToMany(mappedBy = "dish")
