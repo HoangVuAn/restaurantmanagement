@@ -14,8 +14,13 @@ public class CustomerAPI {
     @Autowired
     private ICustomerService customerService;
 
+    @GetMapping(value = "/customer/{id}")
+    public CustomerDTO showCustomer(@PathVariable("id") long id) {
+        return customerService.findOne(id);
+    }
+
     @GetMapping(value = "/customer")
-    public List<CustomerDTO> showCustomer(){
+    public List<CustomerDTO> showAllCustomer(){
         return customerService.findAll();
     }
 

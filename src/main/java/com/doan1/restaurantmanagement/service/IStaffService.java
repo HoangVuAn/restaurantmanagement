@@ -9,4 +9,5 @@ public interface IStaffService {
     StaffDTO save (StaffDTO staffDTO);
     void delete(long[] ids);
     List<StaffDTO> findAll();
+    StaffDTO findOne(long id);
 }

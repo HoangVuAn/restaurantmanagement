@@ -50,4 +50,10 @@ public class CustomerService implements ICustomerService {
         }
         return result;
     }
+
+    @Override
+    public CustomerDTO findOne(long id) {
+        CustomerEntity entity = customerRepository.findOneById(id);
+        return customerConverter.toDTO(entity);
+    }
 }

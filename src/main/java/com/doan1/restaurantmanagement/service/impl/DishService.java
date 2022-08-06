@@ -57,4 +57,10 @@ public class DishService implements IDishService {
         }
         return result;
     }
+
+    @Override
+    public DishDTO findOne(long id) {
+        DishEntity entity = dishRepository.findOneById(id);
+        return dishConverter.toDTO(entity);
+    }
 }

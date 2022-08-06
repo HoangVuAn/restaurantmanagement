@@ -16,7 +16,8 @@ public class DishEntity extends BaseEntity{
     @Column(name = "Price",nullable = false)
     private Long price;
 
-    @Lob
+    @Lob()
+    @Column(name = "image",nullable = false)
     private byte[] image;
 
     @ManyToOne

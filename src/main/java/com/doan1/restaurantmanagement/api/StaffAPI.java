@@ -12,8 +12,13 @@ public class StaffAPI {
     @Autowired
     private IStaffService staffService;
 
+    @GetMapping(value = "staff/{id}")
+    public StaffDTO showStaff(@PathVariable("id") long id){
+        return staffService.findOne(id);
+    }
+
     @GetMapping(value = "/staff")
-    public List<StaffDTO> showStaff(){
+    public List<StaffDTO> showAllStaff(){
         return staffService.findAll();
     }
 

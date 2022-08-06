@@ -8,4 +8,5 @@ public interface ICustomerService {
     CustomerDTO save (CustomerDTO customerDTO);
     void delete(long[] ids);
     List<CustomerDTO> findAll();
+    CustomerDTO findOne(long id);
 }

@@ -49,4 +49,11 @@ public class CategoryService implements ICategoryService {
         }
         return result;
     }
+
+    @Override
+    public CategoryDTO findOne(long id) {
+        CategoryEntity entity = categoryRepository.findOneById(id);
+        return categoryConverter.toDTO(entity);
+    }
+
 }

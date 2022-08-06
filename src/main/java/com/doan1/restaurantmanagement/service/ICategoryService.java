@@ -8,4 +8,5 @@ public interface ICategoryService {
     CategoryDTO save(CategoryDTO categoryDTO);
     void delete(long[] ids);
     List<CategoryDTO> findAll();
+    CategoryDTO findOne(long id);
 }

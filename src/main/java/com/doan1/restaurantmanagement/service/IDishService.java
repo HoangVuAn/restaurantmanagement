@@ -8,4 +8,5 @@ public interface IDishService {
     DishDTO save (DishDTO dishDTO);
     void delete(long[] ids);
     List<DishDTO> findAll();
+    DishDTO findOne(long id);
 }

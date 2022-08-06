@@ -1,12 +1,8 @@
 package com.doan1.restaurantmanagement.service.impl;
 
-import com.doan1.restaurantmanagement.converter.CustomerConverter;
 import com.doan1.restaurantmanagement.converter.StaffConverter;
-import com.doan1.restaurantmanagement.dto.CustomerDTO;
 import com.doan1.restaurantmanagement.dto.StaffDTO;
-import com.doan1.restaurantmanagement.entity.CustomerEntity;
 import com.doan1.restaurantmanagement.entity.StaffEntity;
-import com.doan1.restaurantmanagement.repository.CustomerRepository;
 import com.doan1.restaurantmanagement.repository.StaffRepository;
 import com.doan1.restaurantmanagement.service.IStaffService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,5 +49,11 @@ public class StaffService implements IStaffService {
             result.add(staffConverter.toDTO(item));
         }
         return result;
+    }
+
+    @Override
+    public StaffDTO findOne(long id) {
+        StaffEntity entity = staffRepository.findOneById(id);
+        return staffConverter.toDTO(entity);
     }
 }

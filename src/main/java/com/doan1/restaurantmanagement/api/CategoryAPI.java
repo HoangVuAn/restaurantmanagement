@@ -14,8 +14,13 @@ public class CategoryAPI {
     @Autowired
     private ICategoryService categoryService;
 
+    @GetMapping(value = "/category/{id}")
+    public CategoryDTO showCategory(@PathVariable("id") long id) {
+        return categoryService.findOne(id);
+    }
+
     @GetMapping(value = "/category")
-    public List<CategoryDTO> showCategory(){
+    public List<CategoryDTO> showAllCategory(){
         return categoryService.findAll();
     }
 
